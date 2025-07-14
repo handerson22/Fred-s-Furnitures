@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fred's Furnitures - Handcrafted Quality Furniture in California</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        h1, h2, h3, h4, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), 
+                        url('https://placehold.co/1920x1080') center/cover no-repeat;
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-link::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #b9916a;
+            transition: width .3s;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .cart-count {
+            top: -8px;
+            right: -8px;
+        }
+        
+        /* Hamburger menu animation */
+        .hamburger-top,
+        .hamburger-middle,
+        .hamburger-bottom {
+            transition: all 0.3s;
+        }
+        
+        .open .hamburger-top {
+            transform: rotate(45deg) translateY(6px) translateX(6px);
+        }
+        
+        .open .hamburger-middle {
+            display: none;
+        }
+        
+        .open .hamburger-bottom {
+            transform: rotate(-45deg) translateY(-6px) translateX(6px);
+        }
+    </style>
+</head>
+<body class="bg-[#f9f7f4] text-gray-700">
+    <!-- Sticky Header -->
+    <header class="fixed w-full bg-white/90 backdrop-blur-md shadow-sm z-50 transition-all">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-2xl font-bold text-[#7a5c3c]">
+                    Fred's Furnitures
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-gray-700 hover:text-[#7a5c3c] font-medium">Home</a>
+                    <a href="#about" class="nav-link text-gray-700 hover:text-[#7a5c3c] font-medium">About</a>
+                    <a href="#products" class="nav-link text-gray-700 hover:text-[#7a5c3c] font-medium">Products</a>
+                    <a href="#gallery" class="nav-link text-gray-700 hover:text-[#7a5c3c] font-medium">Gallery</a>
+                    <a href="#testimonials" class="nav-link text-gray-700 hover:text-[#7a5c3c] font-medium">Testimonials</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-[#7a5c3c] font-medium">Contact</a>
+                    
+                    <!-- Cart Icon -->
+                    <div class="relative ml-4 cursor-pointer">
+                        <i class="fas fa-shopping-cart text-xl text-[#7a5c3c]"></i>
+                        <span class="cart-count absolute bg-[#b9916a] text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                    </div>
+                </nav>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <div class="relative cursor-pointer mr-4">
+                        <i class="fas fa-shopping-cart text-xl text-[#7a5c3c]"></i>
+                        <span class="cart-count absolute bg-[#b9916a] text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                    </div>
+                    <button id="menu-btn" class="block text-[#7a5c3c] focus:outline-none">
+                        <span class="hamburger-top block w-6 h-0.5 bg-[#7a5c3c] mb-1.5"></span>
+                        <span class="hamburger-middle block w-6 h-0.5 bg-[#7a5c3c] mb-1.5"></span>
+                        <span class="hamburger-bottom block w-6 h-0.5 bg-[#7a5c3c]"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="menu" class="hidden md:hidden bg-white/95">
+            <div class="container mx-auto px-6 py-4">
+                <a href="#home" class="block py-2 text-gray-700 hover:text-[#7a5c3c]">Home</a>
+                <a href="#about" class="block py-2 text-gray-700 hover:text-[#7a5c3c]">About</a>
+                <a href="#products" class="block py-2 text-gray-700 hover:text-[#7a5c3c]">Products</a>
+                <a href="#gallery" class="block py-2 text-gray-700 hover:text-[#7a5c3c]">Gallery</a>
+                <a href="#testimonials" class="block py-2 text-gray-700 hover:text-[#7a5c3c]">Testimonials</a>
+                <a href="#contact" class="block py-2 text-gray-700 hover:text-[#7a5c3c]">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg h-screen flex items-center pt-20">
+        <div class="container mx-auto px-6 text-white relative z-10">
+            <div class="max-w-xl fade-in">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6">Crafting Comfort, One Piece at a Time</h1>
+                <p class="text-lg mb-8">Handcrafted furniture that brings warmth and elegance to your California home since 1985.</p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#products" class="bg-[#b9916a] hover:bg-[#9a7a56] text-white px-8 py-3 rounded-md text-center transition duration-300 font-medium">
+                        Shop Now
+                    </a>
+                    <a href="#contact" class="bg-white hover:bg-gray-100 text-[#7a5c3c] px-8 py-3 rounded-md text-center transition duration-300 font-medium">
+                        Visit Showroom
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#featured" class="text-white">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Featured Collections -->
+    <section id="featured" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 text-[#7a5c3c]">Featured Collections</h2>
+                <div class="w-24 h-1 bg-[#b9916a] mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Collection 1 -->
+                <div class="group relative overflow-hidden rounded-lg shadow-lg product-card transition duration-500">
+                    <img src="https://placehold.co/800x600" alt="Living room collection with modern sofas and coffee tables in natural wood finishes" class="w-full h-80 object-cover transition duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black/30 flex items-end p-6 group-hover:bg-black/40 transition duration-500">
+                        <div>
+                            <h3 class="text-white text-2xl font-bold">The Living Collection</h3>
+                            <p class="text-gray-200">Modern comfort meets classic design</p>
+                            <a href="#" class="mt-2 inline-block text-[#b9916a] hover:text-[#dbb185] font-medium">
+                                View Collection <i class="fas fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Collection 2 -->
+                <div class="group relative overflow-hidden rounded-lg shadow-lg product-card transition duration-500">
+                    <img src="https://placehold.co/800x600" alt="Master bedroom suite with king bed, nightstands and dresser in walnut finish" class="w-full h-80 object-cover transition duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black/30 flex items-end p-6 group-hover:bg-black/40 transition duration-500">
+                        <div>
+                            <h3 class="text-white text-2xl font-bold">Bedroom Sanctuary</h3>
+                            <p class="text-gray-200">Serene designs for restful nights</p>
+                            <a href="#" class="mt-2 inline-block text-[#b9916a] hover:text-[#dbb185] font-medium">
+                                View Collection <i class="fas fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Collection 3 -->
+                <div class="group relative overflow-hidden rounded-lg shadow-lg product-card transition duration-500">
+                    <img src="https://placehold.co/800x600" alt="Dining room set with extendable walnut table and upholstered chairs seating eight" class="w-full h-80 object-cover transition duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black/30 flex items-end p-6 group-hover:bg-black/40 transition duration-500">
+                        <div>
+                            <h3 class="text-white text-2xl font-bold">Gathering Spaces</h3>
+                            <p class="text-gray-200">Perfect settings for memorable meals</p>
+                            <a href="#" class="mt-2 inline-block text-[#b9916a] hover:text-[#dbb185] font-medium">
+                                View Collection <i class="fas fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="#products" class="inline-block border-2 border-[#7a5c3c] text-[#7a5c3c] hover:bg-[#7a5c3c] hover:text-white px-8 py-3 rounded-md transition duration-300 font-medium">
+                    View All Collections
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-[#f5f0ea]">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2">
+                    <img src="https://placehold.co/800x1000" alt="Fred's workshop showing craftsmen hand-finishing a wooden table with natural light from large windows" class="rounded-lg shadow-xl">
+                </div>
+                <div class="lg:w-1/2">
+                    <h2 class="text-4xl font-bold mb-6 text-[#7a5c3c]">Our Story</h2>
+                    <p class="text-lg mb-6">Since 1985, Fred's Furnitures has been crafting heirloom-quality furniture in California. What began as a small workshop in Santa Barbara has grown into a beloved brand known for its attention to detail and commitment to sustainable materials.</p>
+                    <p class="text-lg mb-8">Each piece in our collection is handcrafted by our skilled artisans using techniques passed down through generations. We source our wood from responsibly managed forests and take pride in creating furniture that stands the test of time.</p>
+                    
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div class="flex items-start">
+                            <div class="text-[#b9916a] text-2xl mr-4">
+                                <i class="fas fa-tree"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Sustainable Materials</h4>
+                                <p>100% responsibly sourced hardwood</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-[#b9916a] text-2xl mr-4">
+                                <i class="fas fa-helmet-safety"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Skilled Craftsmanship</h4>
+                                <p>Handmade by master artisans</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-[#b9916a] text-2xl mr-4">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Lifetime Guarantee</h4>
+                                <p>Quality that lasts generations</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-[#b9916a] text-2xl mr-4">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">White Glove Delivery</h4>
+                                <p>Delivered and assembled for you</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="inline-block bg-[#7a5c3c] hover:bg-[#5e482f] text-white px-8 py-3 rounded-md transition duration-300 font-medium">
+                        Visit Our Workshop
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4 text-[#7a5c3c]">Our Collections</h2>
+                <div class="w-24 h-1 bg-[#b9916a] mx-auto mb-8"></div>
+                
+                <!-- Filters -->
+                <div class="flex flex-wrap justify-center gap-4 mb-12">
+                    <button class="px-6 py-2 bg-[#7a5c3c] text-white rounded-full filter-btn" data-filter="all">All</button>
+                    <button class="px-6 py-2 bg-gray-200 hover:bg-[#7a5c3c] hover:text-white rounded-full transition filter-btn" data-filter="living">Living Room</button>
+                    <button class="px-6 py-2 bg-gray-200 hover:bg-[#7a5c3c] hover:text-white rounded-full transition filter-btn" data-filter="bedroom">Bedroom</button>
+                    <button class="px-6 py-2 bg-gray-200 hover:bg-[#7a5c3c] hover:text-white rounded-full transition filter-btn" data-filter="dining">Dining</button>
+                    <button class="px-6 py-2 bg-gray-200 hover:bg-[#7a5c3c] hover:text-white rounded-full transition filter-btn" data-filter="office">Office</button>
+                    <button class="px-6 py-2 bg-gray-200 hover:bg-[#7a5c3c] hover:text-white rounded-full transition filter-btn" data-filter="outdoor">Outdoor</button>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="product-grid">
+                <!-- Product 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md product-item transition duration-300 product-card" data-category="living">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://placehold.co/800x600" alt="Modern 3-seat leather sofa in cognac brown with walnut legs" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-[#b9916a] text-white text-xs px-2 py-1 rounded-full">Bestseller</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-xl">Carmel Sofa</h3>
+                            <span class="text-[#7a5c3c] font-bold">$1,499</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Handcrafted top-grain leather sofa with solid walnut legs</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <button class="add-to-cart bg-[#7a5c3c] hover:bg-[#5e482f] text-white px-4 py-2 rounded transition duration-300" data-id="1" data-name="Carmel Sofa" data-price="1499" data-image="https://placehold.co/800x600">
+                                <i class="fas fa-shopping-cart mr-2"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md product-item transition duration-300 product-card" data-category="bedroom">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://placehold.co/800x600" alt="Four poster king size bed in reclaimed oak with linen headboard" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-xl">Redwood Bed</h3>
+                            <span class="text-[#7a5c3c] font-bold">$2,199</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Handcrafted four-poster bed in reclaimed oak with upholstered headboard</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <button class="add-to-cart bg-[#7a5c3c] hover:bg-[#5e482f] text-white px-4 py-2 rounded transition duration-300" data-id="2" data-name="Redwood Bed" data-price="2199" data-image="https://placehold.co/800x600">
+                                <i class="fas fa-shopping-cart mr-2"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md product-item transition duration-300 product-card" data-category="dining">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://placehold.co/800x600" alt="Farmhouse dining table with two extendable leaves, seats 6-10 people" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-[#b9916a] text-white text-xs px-2 py-1 rounded-full">New</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-xl">Harvest Table</h3>
+                            <span class="text-[#7a5c3c] font-bold">$1,899</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Extendable farmhouse table in reclaimed pine, seats 6-10</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <button class="add-to-cart bg-[#7a5c3c] hover:bg-[#5e482f] text-white px-4 py-2 rounded transition duration-300" data-id="3" data-name="Harvest Table" data-price="1899" data-image="https://placehold.co/800x600">
+                                <i class="fas fa-shopping-cart mr-2"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md product-item transition duration-300 product-card" data-category="office">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://placehold.co/800x600" alt="Executive desk with drawers and cable management in dark walnut finish" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-xl">Executive Desk</h3>
+                            <span class="text-[#7a5c3c] font-bold">$1,299</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Solid walnut desk with integrated cable management</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <button class="add-to-cart bg-[#7a5c3c] hover:bg-[#5e482f] text-white px-4 py-2 rounded transition duration-300" data-id="4" data-name="Executive Desk" data-price="1299" data-image="https://placehold.co/800x600">
+                                <i class="fas fa-shopping-cart mr-2"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 5 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md product-item transition duration-300 product-card" data-category="outdoor">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://placehold.co/800x600" alt="Teak outdoor dining set with six chairs and umbrella hole in table" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-xl">Teak Dining Set</h3>
+                            <span class="text-[#7a5c3c] font-bold">$2,499</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Outdoor dining set in weather-resistant teak, seats 6</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <button class="add-to-cart bg-[#7a5c3c] hover:bg-[#5e482f] text-white px-4 py-2 rounded transition duration-300" data-id="5" data-name="Teak Dining Set" data-price="2499" data-image="https://placehold.co/800x600">
+                                <i class="fas fa-shopping-cart mr-2"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 6 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md product-item transition duration-300 product-card" data-category="living">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://placehold.co/800x600" alt="Sectional sofa in performance fabric with chaise lounge and ottoman" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-[#b9916a] text-white text-xs px-2 py-1 rounded-full">Sale</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-xl">Monterey Sectional</h3>
+                            <span class="text-[#7a5c3c] font-bold">$2,799 <span class="text-gray-400 line-through ml-2">$3,299</span></span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Modular sectional with chaise in stain-resistant performance fabric</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <button class="add-to-cart bg-[#7a5c3c] hover:bg-[#5e482f] text-white px-4 py-2 rounded transition duration-300" data-id="6" data-name="Monterey Sectional" data-price="2799" data-image="https://placehold.co/800x600">
+                                <i class="fas fa-shopping-cart mr-2"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-[#f5f0ea]">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 text-[#7a5c3c]">Our Furniture in Homes</h2>
+                <div class="w-24 h-1 bg-[#b9916a] mx-auto"></div>
+                <p class="mt-6 text-lg max-w-2xl mx-auto">Browse our gallery to see Fred's Furnitures in beautiful California homes just like yours.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Gallery Item 1 -->
+                <div class="group relative overflow-hidden rounded-lg shadow-lg h-64">
+                    <img src="https://placehold.co/800x1000" alt="Sunlit living room featuring Carmel sofa and walnut coffee table with coastal decor" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/20 flex items-end p-6 opacity-0 group-hover:opacity-100 transition duration-500">
+                        <h3 class="text-white text-xl font-medium">Santa Barbara Living Room</h3>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 2 -->
+                <div class="group relative overflow-hidden rounded-lg shadow-lg h-64">
+                    <img src="https://placehold.co/800x1000" alt="Master bedroom with Redwood bed and matching nightstands in a beach house setting" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/20 flex items-end p-6 opacity-0 group-hover:opacity-100 transition duration-500">
+                        <h3 class="text-white text-xl font-medium">Malibu Master Suite</h3>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 3 -->
+                <div class="group relative overflow-hidden rounded-lg shadow-lg h-64">
+                    <img src="https://placehold.co/800x1000" alt="Family gathered around Harvest dining table for a meal with farmhouse style decor" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/20 flex items-end p-6 opacity-0 group-hover:opacity-100 transition duration-500">
+                        <h3 class="text-white text-xl font-medium">Napa Valley Dining Room</h3>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 4 -->
+                <div class="group relative overflow-hidden rounded-lg shadow-lg h-96 sm:col-span-2">
+                    <img src="https://placehold.co/1000x800" alt="Open concept great room with multiple Fred's Furnitures pieces in a modern rustic style" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/20 flex items-end p-6 opacity-0 group-hover:opacity-100 transition duration-500">
+                        <h3 class="text-white text-xl font-medium">Beverly Hills Great Room</h3>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 5 -->
+                <div class="group relative overflow-hidden rounded-lg shadow-lg h-64">
+                    <img src="https://placehold.co/800x1000" alt="Sunroom with wicker chairs and teak side tables overlooking a garden" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/20 flex items-end p-6 opacity-0 group-hover:opacity-100 transition duration-500">
+                        <h3 class="text-white text-xl font-medium">Laguna Beach Sunroom</h3>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 6 -->
+                <div class="group relative overflow-hidden rounded-lg shadow-lg h-64">
+                    <img src="https://placehold.co/800x1000" alt="Home office with Executive desk and leather chair in a loft-style apartment" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/20 flex items-end p-6 opacity-0 group-hover:opacity-100 transition duration-500">
+                        <h3 class="text-white text-xl font-medium">San Francisco Home Office</h3>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Room Designer CTA -->
+            <div class="mt-16 bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="flex flex-col lg:flex-row">
+                    <div class="lg:w-1/2">
+                        <img src="https://placehold.co/800x600" alt="Interactive room designer interface showing furniture placement in a virtual living room" class="w-full h-full object-cover">
+                    </div>
+                    <div class="lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center">
+                        <h3 class="text-2xl font-bold mb-4 text-[#7a5c3c]">Design Your Perfect Room</h3>
+                        <p class="mb-6">Use our interactive room planner to visualize Fred's Furnitures pieces in your own space. Mix and match collections to create your dream interior.</p>
+                        <button class="bg-[#7a5c3c] hover:bg-[#5e482f] text-white px-8 py-3 rounded-md transition duration-300 font-medium w-full lg:w-auto" id="designer-btn">
+                            Try Our Room Designer
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 text-[#7a5c3c]">What Our Customers Say</h2>
+                <div class="w-24 h-1 bg-[#b9916a] mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <!-- Testimonial 1 -->
+                <div class="bg-[#f5f0ea] p-8 rounded-lg shadow-sm testimonial-item">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="text-sm text-gray-600">6 months ago</span>
+                    </div>
+                    <p class="mb-6 italic">"Our Carmel sofa gets compliments from everyone who visits. The quality is exceptional, and it's incredibly comfortable. Fred's Furnitures will be our first stop when we need more pieces."</p>
+                    <div class="flex items-center">
+                        <img src="https://placehold.co/60x60" alt="Portrait of happy customer Sarah J. with short blonde hair smiling" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-bold">Sarah J.</h4>
+                            <p class="text-sm text-gray-600">San Diego, CA</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-[#f5f0ea] p-8 rounded-lg shadow-sm testimonial-item">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="text-sm text-gray-600">1 year ago</span>
+                    </div>
+                    <p class="mb-6 italic">"The Redwood bed has transformed our master bedroom into a sanctuary. The craftsmanship is impeccable, and the reclaimed oak has such beautiful character. Worth every penny!"</p>
+                    <div class="flex items-center">
+                        <img src="https://placehold.co/60x60" alt="Portrait of happy customer Michael T. with glasses and beard looking pleased" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-bold">Michael T.</h4>
+                            <p class="text-sm text-gray-600">Los Angeles, CA</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-[#f5f0ea] p-8 rounded-lg shadow-sm testimonial-item">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span class="text-sm text-gray-600">2 years ago</span>
+                    </div>
+                    <p class="mb-6 italic">"We bought the entire dining set for our beach house, and it's held up beautifully despite the coastal climate. The teak has developed a lovely patina. Excellent products and fantastic customer service!"</p>
+                    <div class="flex items-center">
+                        <img src="https://placehold.co/60x60" alt="Portrait of happy couple Jennifer and Robert W. smiling together" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-bold">Jennifer & Robert W.</h4>
+                            <p class="text-sm text-gray-600">Santa Barbara, CA</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="#" class="inline-block border-2 border-[#7a5c3c] text-[#7a5c3c] hover:bg-[#7a5c3c] hover:text-white px-8 py-3 rounded-md transition duration-300 font-medium">
+                    Read More Reviews
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-16 bg-[#7a5c3c] text-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-4">Join Our Community</h2>
+                <p class="mb-8 text-lg max-w-2xl mx-auto">Subscribe to our newsletter and receive 10% off your first purchase, plus exclusive access to new collections and events.</p>
+                
+                <form id="newsletter-form" class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto sm:max-w-xl">
+                    <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-md text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#b9916a]" required>
+                    <button type="submit" class="bg-[#b9916a] hover:bg-[#dbb185] text-white px-8 py-3 rounded-md transition duration-300 font-medium">
+                        Subscribe
+                    </button>
+                </form>
+                
+                <p class="mt-4 text-sm text-white/80">We respect your privacy. Unsubscribe at any time.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-[#f5f0ea]">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="text-4xl font-bold mb-6 text-[#7a5c3c]">Visit Our Showroom</h2>
+                    <p class="mb-8 text-lg">Our Santa Barbara showroom is open for browsing and design consultations. Schedule an appointment or drop by during business hours.</p>
+                    
+                    <div class="space-y-6 mb-8">
+                        <div class="flex items-start">
+                            <div class="text-[#b9916a] text-xl mt-1 mr-4">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Address</h4>
+                                <p>123 Craftsman Way, Santa Barbara, CA 93101</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-[#b9916a] text-xl mt-1 mr-4">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Phone</h4>
+                                <p>(805) 555-0198</p>
+                                <p class="text-sm text-gray-600">Monday-Friday, 9am-6pm</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-[#b9916a] text-xl mt-1 mr-4">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Email</h4>
+                                <p>info@fredsfurnitures.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-[#b9916a] text-xl mt-1 mr-4">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Hours</h4>
+                                <p>Monday-Friday: 9am-6pm</p>
+                                <p>Saturday: 10am-5pm</p>
+                                <p>Sunday: 12pm-4pm</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold text-lg mb-4">Follow Us</h4>
+                        <div class="flex space-x-4 text-[#7a5c3c]">
+                            <a href="#" class="hover:text-[#b9916a] text-xl"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="hover:text-[#b9916a] text-xl"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="hover:text-[#b9916a] text-xl"><i class="fab fa-pinterest-p"></i></a>
+                            <a href="#" class="hover:text-[#b9916a] text-xl"><i class="fab fa-yelp"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="bg-white rounded-lg shadow-lg p-8">
+                        <h3 class="text-2xl font-bold mb-6 text-[#7a5c3c]">Send Us a Message</h3>
+                        <form id="contact-form">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium mb-1">Full Name</label>
+                                    <input type="text" id="name" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#b9916a]" required>
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium mb-1">Email</label>
+                                    <input type="email" id="email" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#b9916a]" required>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <label for="phone" class="block text-sm font-medium mb-1">Phone (Optional)</label>
+                                <input type="tel" id="phone" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#b9916a]">
+                            </div>
+                            <div class="mb-4">
+                                <label for="subject" class="block text-sm font-medium mb-1">Subject</label>
+                                <select id="subject" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#b9916a]">
+                                    <option value="general">General Inquiry</option>
+                                    <option value="product">Product Question</option>
+                                    <option value="design">Design Consultation</option>
+                                    <option value="event">Event Information</option>
+                                </select>
+                            </div>
+                            <div class="mb-6">
+                                <label for="message" class="block text-sm font-medium mb-1">Message</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#b9916a]" required></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-[#7a5c3c] hover:bg-[#5e482f] text-white px-8 py-3 rounded-md transition duration-300 font-medium">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <div class="mt-8 h-64 w-full rounded-lg overflow-hidden shadow-lg">
+                        <!-- Map Embed -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3303.554185217653!2d-119.69981012453564!3d34.15934291731024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80e82d381a26de19%3A0xe8f72982e0bd62b1!2sDowntown%20Santa%20Barbara!5e0!3m2!1sen!2sus!4v1713263541308!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mini Blog Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 text-[#7a5c3c]">From Our Blog</h2>
+                <div class="w-24 h-1 bg-[#b9916a] mx-auto"></div>
+                <p class="mt-6 text-lg max-w-2xl mx-auto">Tips, trends, and inspiration from the world of fine furniture and home design.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Blog Post 1 -->
+                <article class="bg-[#f5f0ea] rounded-lg overflow-hidden shadow-md">
+                    <img src="https://placehold.co/800x500" alt="Room styled with mix of modern and vintage furniture pieces in a cohesive design" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-600 mb-3">
+                            <span>April 15, 2023</span>
+                            <span class="mx-2">•</span>
+                            <span>5 min read</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Mixing Modern and Vintage: A Guide to Eclectic Styling</h3>
+                        <p class="mb-4">Learn how to blend contemporary and antique pieces for a look that's uniquely yours. Our design experts share their top tips.</p>
+                        <a href="#" class="text-[#b9916a] hover:text-[#9a7a56] font-medium">Read More <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </article>
+                
+                <!-- Blog Post 2 -->
+                <article class="bg-[#f5f0ea] rounded-lg overflow-hidden shadow-md">
+                    <img src="https://placehold.co/800x500" alt="Different wood samples with labels showing sustainable forestry certification marks" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-600 mb-3">
+                            <span>March 28, 2023</span>
+                            <span class="mx-2">•</span>
+                            <span>4 min read</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Sustainable Wood Sourcing: Our Commitment to the Environment</h3>
+                        <p class="mb-4">Discover how we source our materials responsibly and what certifications to look for when buying sustainable furniture.</p>
+                        <a href="#" class="text-[#b9916a] hover:text-[#9a7a56] font-medium">Read More <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </article>
+                
+                <!-- Blog Post 3 -->
+                <article class="bg-[#f5f0ea] rounded-lg overflow-hidden shadow-md">
+                    <img src="https://placehold.co/800x500" alt="Before and after photos of a dining room makeover highlighting a new table from Fred's Furnitures" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-600 mb-3">
+                            <span>March 10, 2023</span>
+                            <span class="mx-2">•</span>
+                            <span>6 min read</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Transformation Tuesday: Coastal Dining Room Makeover</h3>
+                        <p class="mb-4">See how the Harvest Table became the centerpiece of this stunning Santa Barbara dining room renovation.</p>
+                        <a href="#" class="text-[#b9916a] hover:text-[#9a7a56] font-medium">Read More <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </article>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="#" class="inline-block border-2 border-[#7a5c3c] text-[#7a5c3c] hover:bg-[#7a5c3c] hover:text-white px-8 py-3 rounded-md transition duration-300 font-medium">
+                    View All Articles
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#3a2c1e] text-white pt-12 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h4 class="text-xl font-bold mb-4 text-[#b9916a]">Fred's Furnitures</h4>
+                    <p class="mb-4">Handcrafted furniture that brings warmth and elegance to your California home since 1985.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-[#b9916a]"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="hover:text-[#b9916a]"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="hover:text-[#b9916a]"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#" class="hover:text-[#b9916a]"><i class="fab fa-yelp"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold mb-4 text-[#b9916a]">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="hover:text-[#b9916a]">Home</a></li>
+                        <li><a href="#about" class="hover:text-[#b9916a]">About Us</a></li>
+                        <li><a href="#products" class="hover:text-[#b9916a]">Products</a></li>
+                        <li><a href="#gallery" class="hover:text-[#b9916a]">Gallery</a></li>
+                        <li><a href="#blog" class="hover:text-[#b9916a]">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold mb-4 text-[#b9916a]">Customer Service</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-[#b9916a]">Shipping & Delivery</a></li>
+                        <li><a href="#" class="hover:text-[#b9916a]">Returns & Exchanges</a></li>
+                        <li><a href="#" class="hover:text-[#b9916a]">Care Guides</a></li>
+                        <li><a href="#" class="hover:text-[#b9916a]">FAQ</a></li>
+                        <li><a href="#contact" class="hover:text-[#b9916a]">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold mb-4 text-[#b9916a]">Visit Us</h4>
+                    <address class="not-italic">
+                        <p class="mb-2">123 Craftsman Way</p>
+                        <p class="mb-2">Santa Barbara, CA 93101</p>
+                        <p class="mb-4">(805) 555-0198</p>
+                        <p>
+                            <span class="font-bold">Hours:</span><br>
+                            Mon-Fri: 9am-6pm<br>
+                            Sat: 10am-5pm<br>
+                            Sun: 12pm-4pm
+                        </p>
+                    </address>
+                </div>
+            </div>
+            
+            <div class="pt-8 mt-8 border-t border-[#5e482f] text-sm text-center">
+                <p>&copy; 2023 Fred's Furnitures. All rights reserved.</p>
+                <div class="flex justify-center space-x-4 mt-2">
+                    <a href="#" class="hover:text-[#b9916a]">Privacy Policy</a>
+                    <a href="#" class="hover:text-[#b9916a]">Terms of Service</a>
+                    <a href="#" class="hover:text-[#b9916a]">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Modal -->
+    <div id="cart-modal" class="fixed inset-0 bg-black/50 z-50 flex justify-end opacity-0 pointer-events-none transition duration-300">
+        <div class="bg-white w-full max-w-md h-full overflow-y-auto transform translate-x-full transition duration-300">
+            <div class="p-6 flex justify-between items-center border-b">
+                <h3 class="text-xl font-bold">Your Cart</h3>
+                <button id="close-cart" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+            </div>
+            
+            <div class="p-6" id="cart-items">
+                <!-- Cart items will be dynamically inserted here -->
+                <div class="text-center py-12" id="empty-cart-message">
+                    <i class="fas fa-shopping-cart text-4xl text-gray-300 mb-4"></i>
+                    <p class="text-gray-500">Your cart is empty</p>
+                </div>
+            </div>
+            
+            <div class="p-6 border-t">
+                <div class="flex justify-between mb-4 font-bold">
+                    <span>Subtotal</span>
+                    <span id="cart-subtotal">$0</span>
+                </div>
+                <div class="flex justify-between mb-4">
+                    <span>Shipping</span>
+                    <span>Calculated at checkout</span>
+                </div>
+                <div class="flex justify-between mb-6 text-lg font-bold">
+                    <span>Total</span>
+                    <span id="cart-total">$0</span>
+                </div>
+                <a href="#" class="block bg-[#7a5c3c] hover:bg-[#5e482f] text-white px-8 py-3 rounded-md text-center transition duration-300 font-medium mb-4">
+                    Proceed to Checkout
+                </a>
+                <a href="#products" class="block text-center text-[#7a5c3c] hover:text-[#5e482f] font-medium">
+                    Continue Shopping
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Room Designer Modal -->
+    <div id="designer-modal" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center opacity-0 pointer-events-none transition duration-300">
+        <div class="bg-white rounded-lg max-w-5xl w-full max-h-[90vh] overflow-y-auto transform scale-95 transition duration-300">
+            <div class="p-6 flex justify-between items-center border-b">
+                <h3 class="text-xl font-bold">Room Designer</h3>
+                <button id="close-designer" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+            </div>
+            
+            <div class="p-6">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="lg:col-span-2">
+                        <div class="bg-gray-100 rounded-lg h-96 flex items-center justify-center mb-4">
+                            <p class="text-gray-500">Room preview will appear here</p>
+                        </div>
+                        <h4 class="font-bold mb-2">Room Dimensions</h4>
+                        <div class="grid grid-cols-3 gap-4 mb-6">
+                            <div>
+                                <label class="block text-sm mb-1">Length (ft)</label>
+                                <input type="number" class="w-full px-3 py-2 border rounded">
+                            </div>
+                            <div>
+                                <label class="block text-sm mb-1">Width (ft)</label>
+                                <input type="number" class="w-full px-3 py-2 border rounded">
+                            </div>
+                            <div>
+                                <label class="block text-sm mb-1">Ceiling (ft)</label>
+                                <input type="number" class="w-full px-3 py-2 border rounded">
+                            </div>
+                        </div>
+                        <h4 class="font-bold mb-2">Room Type</h4>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <button class="px-4 py-2 bg-gray-200 hover:bg-[#7a5c3c] hover:text-white rounded transition">Living Room</button>
+                            <button class="px-4 py-2 bg-gray-200 hover:bg-[#7a5c3c] hover:text-white rounded transition">Dining Room</button>
+                            <button class="px-4 py-2 bg-gray-200 hover:bg-[#7a5c3c] hover:text-white rounded transition">Bedroom</button>
+                            <button class="px-4 py-2 bg-gray-200 hover:bg-[#7a5c3c] hover:text-white rounded transition">Office</button>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold mb-4">Add Furniture</h4>
+                        <div class="space-y-4">
+                            <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                                <img src="https://placehold.co/60x60" alt="Carmel sofa thumbnail" class="w-16 h-16 object-cover rounded mr-3">
+                                <div class="flex-grow">
+                                    <h5 class="font-medium">Carmel Sofa</h5>
+                                    <p class="text-sm text-gray-600">Living Room</p>
+                                </div>
+                                <button class="text-[#7a5c3c] hover:text-[#5e482f]">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                                <img src="https://placehold.co/60x60" alt="Redwood bed thumbnail" class="w-16 h-16 object-cover rounded mr-3">
+                                <div class="flex-grow">
+                                    <h5 class="font-medium">Redwood Bed</h5>
+                                    <p class="text-sm text-gray-600">Bedroom</p>
+                                </div>
+                                <button class="text-[#7a5c3c] hover:text-[#5e482f]">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                                <img src="https://placehold.co/60x60" alt="Harvest table thumbnail" class="w-16 h-16 object-cover rounded mr-3">
+                                <div class="flex-grow">
+                                    <h5 class="font-medium">Harvest Table</h5>
+                                    <p class="text-sm text-gray-600">Dining Room</p>
+                                </div>
+                                <button class="text-[#7a5c3c] hover:text-[#5e482f]">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                                <img src="https://placehold.co/60x60" alt="Teak dining set thumbnail" class="w-16 h-16 object-cover rounded mr-3">
+                                <div class="flex-grow">
+                                    <h5 class="font-medium">Teak Dining Set</h5>
+                                    <p class="text-sm text-gray-600">Outdoor</p>
+                                </div>
+                                <button class="text-[#7a5c3c] hover:text-[#5e482f]">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="p-6 border-t flex justify-between">
+                <button class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-arrow-left mr-2"></i> Back to Products
+                </button>
+                <button class="bg-[#7a5c3c] hover:bg-[#5e482f] text-white px-8 py-3 rounded-md transition duration-300 font-medium">
+                    Save Design
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success/Error Messages -->
+    <div id="messages-container" class="fixed top-4 right-4 z-50 space-y-3">
+        <!-- Messages will be inserted here dynamically -->
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle
+            const menuBtn = document.getElementById('menu-btn');
+            const menu = document.getElementById('menu');
+            
+            menuBtn.addEventListener('click', function() {
+                menuBtn.classList.toggle('open');
+                menu.classList.toggle('hidden');
+                menu.classList.toggle('flex');
+            });
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        const headerHeight = document.querySelector('header').offsetHeight;
+                        const targetPosition = target.offsetTop - headerHeight;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        menuBtn.classList.remove('open');
+                        menu.classList.add('hidden');
+                        menu.classList.remove('flex');
+                    }
+                });
+            });
+            
+            // Shopping Cart Functionality
+            const cartModal = document.getElementById('cart-modal');
+            const closeCartBtn = document.getElementById('close-cart');
+            const cartItems = document.getElementById('cart-items');
+            const emptyCartMessage = document.getElementById('empty-cart-message');
+            const cartSubtotal = document.getElementById('cart-subtotal');
+            const cartTotal = document.getElementById('cart-total');
+            const cartCount = document.querySelector('.cart-count');
+            
+            let cart = [];
+            
+            // Open cart when cart icon is clicked
+            document.querySelectorAll('.fa-shopping-cart').forEach(icon => {
+                icon.closest('div, button').addEventListener('click', function(e) {
+                    // Don't open cart if we're clicking the "Add to Cart" button
+                    if (this.classList.contains('add-to-cart')) return;
+                    
+                    e.preventDefault();
+                    updateCartModal();
+                    cartModal.classList.remove('pointer-events-none');
+                    cartModal.classList.add('pointer-events-auto');
+                    cartModal.classList.remove('opacity-0');
+                    document.querySelector('#cart-modal > div').classList.remove('translate-x-full');
+                });
+            });
+            
+            // Close cart modal
+            closeCartBtn.addEventListener('click', function() {
+                cartModal.classList.add('pointer-events-none');
+                cartModal.classList.remove('pointer-events-auto');
+                cartModal.classList.add('opacity-0');
+                document.querySelector('#cart-modal > div').classList.add('translate-x-full');
+            });
+            
+            // Add to cart functionality
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', function() {
+                    const id = this.dataset.id;
+                    const name = this.dataset.name;
+                    const price = parseFloat(this.dataset.price);
+                    const image = this.dataset.image;
+                    
+                    // Check if item already exists in cart
+                    const existingItem = cart.find(item => item.id === id);
+                    
+                    if (existingItem) {
+                        existingItem.quantity += 1;
+                    } else {
+                        cart.push({
+                            id,
+                            name,
+                            price,
+                            image,
+                            quantity: 1
+                        });
+                    }
+                    
+                    // Update cart count
+                    updateCartCount();
+                    
+                    // Show success message
+                    showMessage('success', `${name} added to cart`);
+                });
+            });
+            
+            // Update cart modal with current items
+            function updateCartModal() {
+                if (cart.length === 0) {
+                    emptyCartMessage.classList.remove('hidden');
+                    cartSubtotal.textContent = '$0';
+                    cartTotal.textContent = '$0';
+                    cartItems.innerHTML = '';
+                    cartItems.appendChild(emptyCartMessage);
+                    return;
+                }
+                
+                emptyCartMessage.classList.add('hidden');
+                
+                // Calculate subtotal
+                let subtotal = 0;
+                let itemsHTML = '';
+                
+                cart.forEach(item => {
+                    subtotal += item.price * item.quantity;
+                    
+                    itemsHTML += `
+                        <div class="flex items-center py-4 border-b" data-id="${item.id}">
+                            <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded mr-4">
+                            <div class="flex-grow">
+                                <h4 class="font-medium">${item.name}</h4>
+                                <p class="text-sm text-gray-600">$${item.price.toFixed(2)}</p>
+                            </div>
+                            <div class="flex items-center">
+                                <button class="decrement-item text-gray-500 hover:text-[#7a5c3c] px-2">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <span class="mx-2">${item.quantity}</span>
+                                <button class="increment-item text-gray-500 hover:text-[#7a5c3c] px-2">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                                <button class="remove-item text-gray-500 hover:text-red-500 ml-4">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                cartItems.innerHTML = itemsHTML;
+                cartSubtotal.textContent = `$${subtotal.toFixed(2)}`;
+                cartTotal.textContent = `$${subtotal.toFixed(2)}`;
+                
+                // Add event listeners to the new buttons
+                document.querySelectorAll('.decrement-item').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const itemId = this.closest('div[data-id]').dataset.id;
+                        const item = cart.find(item => item.id === itemId);
+                        
+                        if (item.quantity > 1) {
+                            item.quantity -= 1;
+                        } else {
+                            cart = cart.filter(item => item.id !== itemId);
+                        }
+                        
+                        updateCartModal();
+                        updateCartCount();
+                    });
+                });
+                
+                document.querySelectorAll('.increment-item').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const itemId = this.closest('div[data-id]').dataset.id;
+                        const item = cart.find(item => item.id === itemId);
+                        item.quantity += 1;
+                        
+                        updateCartModal();
+                        updateCartCount();
+                    });
+                });
+                
+                document.querySelectorAll('.remove-item').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const itemId = this.closest('div[data-id]').dataset.id;
+                        cart = cart.filter(item => item.id !== itemId);
+                        
+                        updateCartModal();
+                        updateCartCount();
+                        showMessage('info', 'Item removed from cart');
+                    });
+                });
+            }
+            
+            // Update cart count in header
+            function updateCartCount() {
+                const count = cart.reduce((total, item) => total + item.quantity, 0);
+                cartCount.textContent = count;
+            }
+            
+            // Product filtering
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const productItems = document.querySelectorAll('.product-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const filter = this.dataset.filter;
+                    
+                    // Update active button
+                    filterButtons.forEach(btn => {
+                        if (btn === this) {
+                            btn.classList.remove('bg-gray-200');
+                            btn.classList.add('bg-[#7a5c3c]', 'text-white');
+                        } else {
+                            btn.classList.add('bg-gray-200');
+                            btn.classList.remove('bg-[#7a5c3c]', 'text-white');
+                        }
+                    });
+                    
+                    // Filter products
+                    productItems.forEach(item => {
+                        if (filter === 'all' || item.dataset.category === filter) {
+                            item.classList.remove('hidden');
+                            item.classList.add('block');
+                        } else {
+                            item.classList.remove('block');
+                            item.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+            
+            // Room Designer Modal
+            const designerModal = document.getElementById('designer-modal');
+            const closeDesignerBtn = document.getElementById('close-designer');
+            const designerBtn = document.getElementById('designer-btn');
+            
+            designerBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                designerModal.classList.remove('pointer-events-none');
+                designerModal.classList.add('pointer-events-auto');
+                designerModal.classList.remove('opacity-0');
+                document.querySelector('#designer-modal > div').classList.remove('scale-95');
+                document.querySelector('#designer-modal > div').classList.add('scale-100');
+            });
+            
+            closeDesignerBtn.addEventListener('click', function() {
+                designerModal.classList.add('pointer-events-none');
+                designerModal.classList.remove('pointer-events-auto');
+                designerModal.classList.add('opacity-0');
+                document.querySelector('#designer-modal > div').classList.remove('scale-100');
+                document.querySelector('#designer-modal > div').classList.add('scale-95');
+            });
+            
+            // Form Submission
+            const contactForm = document.getElementById('contact-form');
+            const newsletterForm = document.getElementById('newsletter-form');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                showMessage('success', 'Thank you! Your message has been sent. We will respond within 24 hours.');
+                this.reset();
+            });
+            
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                showMessage('success', 'Thank you for subscribing! Check your email for your 10% off coupon.');
+                this.reset();
+            });
+            
+            // Show message notification
+            function showMessage(type, text) {
+                const container = document.getElementById('messages-container');
+                const message = document.createElement('div');
+                
+                let bgColor = '';
+                if (type === 'success') bgColor = 'bg-green-500';
+                else if (type === 'error') bgColor = 'bg-red-500';
+                else if (type === 'info') bgColor = 'bg-blue-500';
+                
+                message.className = `${bgColor} text-white px-6 py-3 rounded-lg shadow-lg flex justify-between items-center max-w-sm`;
+                message.innerHTML = `
+                    <span>${text}</span>
+                    <button class="ml-4 close-message">
+                        <i class="fas fa-times"></i>
+                    </button>
+                `;
+                
+                container.appendChild(message);
+                
+                // Auto remove after 5 seconds
+                setTimeout(() => {
+                    message.classList.add('opacity-0', 'translate-x-20', 'transition', 'duration-300');
+                    setTimeout(() => {
+                        message.remove();
+                    }, 300);
+                }, 5000);
+                
+                // Manual close
+                message.querySelector('.close-message').addEventListener('click', function() {
+                    message.classList.add('opacity-0', 'translate-x-20', 'transition', 'duration-300');
+                    setTimeout(() => {
+                        message.remove();
+                    }, 300);
+                });
+            }
+            
+            // Animate elements when scrolling
+            function animateOnScroll() {
+                const elements = document.querySelectorAll('.testimonial-item, .product-card');
+                
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementPosition < windowHeight - 100) {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }
+                });
+            }
+            
+            // Set initial styles for animation
+            document.querySelectorAll('.testimonial-item, .product-card').forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+            
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll(); // Run once on load
+        });
+    </script>
+</body>
+</html>
